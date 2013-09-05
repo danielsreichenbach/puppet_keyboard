@@ -1,0 +1,8 @@
+name    'nervo-keyboard'
+version '0.0.1'
+summary 'Puppet Keyboard Module'
+description 'Module for configuring keyboard layout'
+project_page 'https://github.com/nervo/puppet_keyboard'
+license 'MIT'
+author  'Florian Rey <nervo@nervo.net>'
+source  'https://github.com/nervo/puppet_keyboard'
