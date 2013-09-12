@@ -15,12 +15,12 @@ class keyboard (
 
 # Consult the keyboard(5) manual page.
 
-XKBMODEL="<%= model %>"
-XKBLAYOUT="<%= layout %>"
-XKBVARIANT="<%= variant %>"
-XKBOPTIONS="<%= options %>"
+XKBMODEL="<%= @model %>"
+XKBLAYOUT="<%= @layout %>"
+XKBVARIANT="<%= @variant %>"
+XKBOPTIONS="<%= @options %>"
 
-BACKSPACE="<%= backspace %>"
+BACKSPACE="<%= @backspace %>"
 ')
   }
 
