@@ -24,10 +24,10 @@ BACKSPACE="<%= @backspace %>"
 ')
   }
 
-  exec { 'apply':
+  exec { 'apply-keyboard-configuration':
     command     => '/usr/sbin/dpkg-reconfigure -f noninteractive keyboard-configuration',
     subscribe   => File['/etc/default/keyboard'],
-    require     => File['/etc/default/keyboard'],
+    require     => [ File['/etc/default/keyboard'], Package['keyboard-configuration'], ],
     refreshonly => true
   }
 }
