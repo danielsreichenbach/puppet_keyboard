@@ -1,5 +1,5 @@
 name    'nervo-keyboard'
-version '0.0.1'
+version '0.0.2'
 summary 'Puppet Keyboard Module'
 description 'Module for configuring keyboard layout'
 project_page 'https://github.com/nervo/puppet_keyboard'
