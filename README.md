@@ -1,22 +1,35 @@
-Puppet Keyboard Module
-======================
+# puppet-keyboard
 
-Description
------------
+Manage keyboard via Puppet
 
-Module for configuring keyboard layout.
-
-Installation
-------------
+## Installation
 
 Clone this repo to a "keyboard" directory under your Puppet modules directory:
 
     git clone git@github.com:nervo/puppet_keyboard.git keyboard
 
-Usage
------
 
-    class { 'keyboard':
-      layout  => 'fr',
-      variant => 'latin9'
-    }
+## Usage
+
+By default, *us* layout and *pc105* model will be generated.
+
+```
+class { 'keyboard': }
+```
+
+Configure layout.
+
+```
+class { 'keyboard'':
+  layout => 'fr'
+}
+```
+
+Configure variant.
+
+```
+class { 'keyboard'':
+  layout  => 'de',
+  variant => 'nodeadkeys'
+}
+```
