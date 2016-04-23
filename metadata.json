@@ -21,11 +21,10 @@
       "operatingsystemrelease": [
         "12.04",
         "14.04",
-        "16.04",
+        "16.04"
       ]
     }
   ],
-  "dependencies": [],
   "requirements": [
     {
       "name": "puppet",
