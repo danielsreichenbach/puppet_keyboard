@@ -1,0 +1,15 @@
+# Add directories, files, and symbolic links which shall not be stored within
+# this git repository here.
+
+# Numerous always-ignore extensions
+*.diff
+*.orig
+*.rej
+*.swp
+*~
+
+Gemfile.lock
+
+.bundle/
+spec/fixtures/
+vendor/

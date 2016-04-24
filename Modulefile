@@ -1,8 +1,0 @@
-name    'danielsreichenbach-keyboard'
-version '0.0.3'
-summary 'Puppet Keyboard Module'
-description 'Module for configuring keyboard layout'
-project_page 'https://github.com/danielsreichenbach/puppet_keyboard'
-license 'MIT'
-author  'Daniel S. Reichenbach <daniel@kogitoapp.com>'
-source  'https://github.com/danielsreichenbach/puppet_keyboard'
