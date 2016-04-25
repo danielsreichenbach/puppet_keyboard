@@ -55,6 +55,7 @@ class keyboard (
     $ensure            = 'present',
     $autoupgrade       = false,
     $package           = $keyboard::params::package,
+    $default_file      = $keyboard::params::default_file,
 ) inherits keyboard::params {
 
     case $ensure {
@@ -63,12 +64,6 @@ class keyboard (
                 $package_ensure = 'latest'
             } else {
                 $package_ensure = 'present'
-            }
-            # ALL locales support
-            if $locales == ['ALL'] {
-                $config_ensure = 'link'
-            } else {
-                $config_ensure = 'file'
             }
         }
         /(absent)/: {
