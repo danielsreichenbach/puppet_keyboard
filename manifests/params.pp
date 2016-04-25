@@ -4,8 +4,16 @@
 
 class keyboard::params {
 
-    case $::operatingsystem {
-        /(Ubuntu|Debian)/: {
+    $model             = 'pc105'
+    $layout            = 'us'
+    $variant           = ''
+    $options           = ''
+    $backspace         = 'guess'
+    $package           = undef
+    $default_file      = undef
+
+    case $::osfamily {
+        'Debian': {
             $model             = 'pc105'
             $layout            = 'us'
             $variant           = ''
@@ -15,7 +23,7 @@ class keyboard::params {
             $default_file      = '/etc/default/keyboard'
         }
         default: {
-            fail("Unsupported platform: ${::operatingsystem}")
+          fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution.")
         }
     }
 }

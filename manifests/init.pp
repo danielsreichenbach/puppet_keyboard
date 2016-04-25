@@ -57,6 +57,13 @@ class keyboard (
     $package           = $keyboard::params::package,
     $default_file      = $keyboard::params::default_file,
 ) inherits keyboard::params {
+    validate_string($model)
+    validate_string($layout)
+    validate_string($variant)
+    validate_string($options)
+    validate_string($backspace)
+    validate_string($package)
+    validate_absolute_path($default_file)
 
     case $ensure {
         /(present)/: {
