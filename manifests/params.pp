@@ -3,15 +3,6 @@
 #
 
 class keyboard::params {
-
-    $model             = 'pc105'
-    $layout            = 'us'
-    $variant           = ''
-    $options           = ''
-    $backspace         = 'guess'
-    $package           = undef
-    $default_file      = undef
-
     case $::osfamily {
         'Debian': {
             $model             = 'pc105'
