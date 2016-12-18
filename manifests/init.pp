@@ -1,8 +1,8 @@
-# Class: keyboard
+# = Define: ::keyboard::init
 #
 # This module manages keyboard
 #
-# Parameters:
+# == Parameters
 #   [*model*]
 #     Default: pc105
 #
@@ -33,7 +33,7 @@
 #     Default: auto-set, platform specific
 #
 # Actions:
-#   Installs keyboard-configuration package, sets keyboard-related environment
+#   Installs keyboard configuration package, sets keyboard-related environment
 #   variables in the appropriate system-wide configuration file.
 #
 # Requires:
@@ -45,18 +45,18 @@
 #     variant => 'latin9'
 #   }
 #
-# [Remember: No empty lines between comments and class definition]
 class keyboard (
-    $model             = $keyboard::params::model,
-    $layout            = $keyboard::params::layout,
-    $variant           = $keyboard::params::variant,
-    $options           = $keyboard::params::options,
-    $backspace         = $keyboard::params::backspace,
-    $ensure            = 'present',
-    $autoupgrade       = false,
-    $package           = $keyboard::params::package,
-    $default_file      = $keyboard::params::default_file,
-) inherits keyboard::params {
+    $model          = $keyboard::params::model,
+    $layout         = $keyboard::params::layout,
+    $variant        = $keyboard::params::variant,
+    $options        = $keyboard::params::options,
+    $backspace      = $keyboard::params::backspace,
+    $ensure         = $keyboard::params::ensure,
+    $autoupgrade    = $keyboard::params::autoupgrade,
+    $package        = $keyboard::params::package,
+    $default_file   = $keyboard::params::default_file,
+    $update_command = $keyboard::params::update_command,
+  ) inherits keyboard::params {
     validate_string($model)
     validate_string($layout)
     validate_string($variant)
@@ -64,6 +64,7 @@ class keyboard (
     validate_string($backspace)
     validate_string($package)
     validate_absolute_path($default_file)
+    validate_string($update_command)
 
     case $ensure {
         /(present)/: {
@@ -95,7 +96,7 @@ class keyboard (
     }
 
     exec { 'update-keyboard':
-        command     => 'dpkg-reconfigure -f noninteractive keyboard-configuration',
+        command     => $update_command,
         refreshonly => true,
         path        => [
             '/usr/local/bin',
